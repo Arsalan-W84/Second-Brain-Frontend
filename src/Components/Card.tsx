@@ -6,7 +6,7 @@ interface Cardprops {
 
     typeIcon : ReactElement;
     title : string;
-    link : string ;
+    link? : string ;
     type : "video" | "tweet" | "article" | "photo" ; 
 }
 

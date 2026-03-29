@@ -32,10 +32,10 @@ function App() {
 
         <div className='grid grid-cols-3'>
           {/* CARD COMPONETS ENTRY HERE */}
-          <Card title='Second Brain Todo'  typeIcon={<ArticleIcon />}/>
-          <Card title='Trump Tweet'  typeIcon={<TweetIcon />}/>
-          <Card title='Sleep ASMR'  typeIcon={<VideoIcon />}/>
-          <Card title='Photo of Debasis'  typeIcon={<PhotoIcon />}/>
+          <Card title='Second Brain Todo' type='article' typeIcon={<ArticleIcon />}/>
+          <Card title='Trump Tweet' type='tweet' typeIcon={<TweetIcon />}/>
+          <Card title='Sleep ASMR'  type='video' typeIcon={<VideoIcon />}/>
+          <Card title='Photo of Debasis' type='photo' typeIcon={<PhotoIcon />}/>
         </div>
       </div>
     </div>        
