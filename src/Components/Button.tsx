@@ -7,7 +7,7 @@ interface buttonProps {
     text : string;
     starticon? : ReactElement;
     endIcon? : ReactElement;
-    onClick : ()=>void;
+    onClick : ()=>Promise<void> | void;
 }
 
 const variants = {

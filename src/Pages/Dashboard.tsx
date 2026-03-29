@@ -1,16 +1,25 @@
+
+import { useEffect } from 'react'
 import { PlusIcon } from '../assets/plusIcon'
 import { ShareIcon } from '../assets/ShareIcon'
-import { ArticleIcon } from '../assets/SidebarIcons/ArticleIcons'
-import { PhotoIcon } from '../assets/SidebarIcons/photoIcon'
 import { TweetIcon } from '../assets/SidebarIcons/TweetIcon'
-import { VideoIcon } from '../assets/SidebarIcons/videoIcon'
 import { AddContentModal } from '../Components/AddContentModal'
 import { Button } from '../Components/Button'
 import { Card } from '../Components/Card'
 import { Sidebar } from '../Components/Sidebar'
-import { useAddContentStore } from '../store'
+import { useAddContentStore, useUserContents, type Content } from '../store'
 
 export function DashBoard() {
+
+  const Contents = useUserContents((state) => state.Contents)
+  const SetContents = useUserContents((state) => state.SetContents)
+
+
+  useEffect(()=> {
+     SetContents();
+     
+  } , []);
+  
   const ToggleModalShow = useAddContentStore((state) => state.ToggleModalShow);
   const ModalShow = useAddContentStore((state) => state.ModalShow);
   return (
@@ -35,10 +44,17 @@ export function DashBoard() {
 
 
         <div className='grid grid-cols-3'>
-          <Card title='Second Brain Todo' type='article' typeIcon={<ArticleIcon />}/>
-          <Card title='Trump Tweet' type='tweet' typeIcon={<TweetIcon />}/>
-          <Card title='Sleep ASMR'  type='video' typeIcon={<VideoIcon />}/>
-          <Card title='Photo of Debasis' type='photo' typeIcon={<PhotoIcon />}/>
+          {
+            Contents.map((content : Content) => <Card 
+              key= {content._id}
+              id={content._id}
+              userId = {content.userId}
+              title={content.title} 
+              link={content.link} 
+              type={content.type} 
+              typeIcon={< TweetIcon />}
+            /> )
+          }
         </div>
       </div>
     </div>        
