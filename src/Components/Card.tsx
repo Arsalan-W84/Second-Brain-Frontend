@@ -6,12 +6,14 @@ interface Cardprops {
 
     typeIcon : ReactElement;
     title : string;
+    link : string ;
+    type : "video" | "tweet" | "article" | "photo" ; 
 }
 
 
 export const Card = (props: Cardprops) => {
     return (
-        <div  className={`mt-10 ml-10 p-2 bg-gray-200 w-90 h-100 rounded-lg `} >
+        <div  className={`mt-10 ml-10 p-2 bg-gray-200 w-90 h-100 rounded-lg border border-slate-100`} >
             <div>
                <div className="p-2 flex justify-between items-center">
                     <div className={`flex gap-2`}>    
