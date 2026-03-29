@@ -1,4 +1,4 @@
-import type { ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 
 //generic button cmponent , having defined style variants , taking text as input \
 interface buttonProps { 
@@ -22,7 +22,16 @@ const sizes = {
 }
 
 export const Button  = (props:buttonProps) => {
-    return <button className = {`${variants[props.variant]} ${sizes[props.size]} flex items-center rounded-lg gap-2`} onClick={props.onClick}>
+    const [Loading, setloading] = useState(false);
+    async function handleclick() {
+        setloading(true);
+        try{
+            await props.onClick()
+        } finally{
+            setloading(false);
+        }
+    }
+    return <button className = {`${variants[props.variant]} ${sizes[props.size]} flex items-center rounded-lg gap-2 cursor-pointer`} onClick={handleclick} disabled={Loading}>
 
         {props.starticon} {props.text} {props.endIcon}
 
