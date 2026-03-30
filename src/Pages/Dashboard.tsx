@@ -2,7 +2,6 @@
 import { useEffect } from 'react'
 import { PlusIcon } from '../assets/plusIcon'
 import { ShareIcon } from '../assets/ShareIcon'
-import { TweetIcon } from '../assets/SidebarIcons/TweetIcon'
 import { AddContentModal } from '../Components/AddContentModal'
 import { Button } from '../Components/Button'
 import { Card } from '../Components/Card'
@@ -28,7 +27,6 @@ export function DashBoard() {
       else{
         return item.type === Filter;
       }
-
   });
 
   const ToggleModalShow = useAddContentStore((state) => state.ToggleModalShow);
@@ -66,7 +64,6 @@ export function DashBoard() {
               title={content.title} 
               link={content.link} 
               type={content.type} 
-              typeIcon={< TweetIcon />}
             /> )
           }
         </div>

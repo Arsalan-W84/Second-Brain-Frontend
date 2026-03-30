@@ -1,4 +1,3 @@
-import type { ReactElement } from "react";
 import { DeleteIcon } from "../assets/Deleteicon";
 import { ShareIcon } from "../assets/ShareIcon";
 import { VideoIcon } from "../assets/SidebarIcons/videoIcon";
@@ -12,7 +11,6 @@ interface Cardprops {
     key : string ;
     id: string ;
     userId : string;
-    typeIcon : ReactElement;
     title : string;
     link : string ;
     type : "video" | "tweet" | "article" | "photo" ; 

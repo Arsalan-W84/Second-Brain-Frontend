@@ -86,3 +86,26 @@ export const useShareContentStore = create<ShareContentStore>((set) => ({
         set((state) => ({ShareModalShow : !state.ShareModalShow}));
     }
 }))
+
+
+//Shared link fetching contents hook : 
+type SharedUserContents = {
+    Contents  : Content[]
+    SetContents : (shareId :string) => void | Promise<void>
+}
+
+export const useSharedUserContents = create<SharedUserContents>((set) => ({
+    Contents : [] ,
+    SetContents : async(shareId : string) => {
+        try{
+            
+            const response = await axios.get(`${BACKEND_URL}/api/v1/brain/${shareId}`)
+            set({Contents : response.data.contents});
+
+        }catch(e){
+            console.log(e);
+            alert("Invalid URL!");
+        }
+        
+    }
+}));

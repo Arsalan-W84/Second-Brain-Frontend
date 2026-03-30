@@ -2,7 +2,7 @@ import axios from "axios";
 import { CrossIcon } from "../assets/CrossIcon";
 import { useShareContentStore } from "../store";
 import { Button } from "./Button";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL, FRONTEND_URL } from "../config";
 import { useState } from "react";
 
 
@@ -16,7 +16,7 @@ export const ShareContentModal  = () => {
                 "token" : localStorage.getItem("token")
             }
         });
-        const url =BACKEND_URL + '/api/v1/brain/' + response.data.link
+        const url =FRONTEND_URL + 'api/v1/brain/' + response.data.link;
         setShareLink(url);
     }
 
