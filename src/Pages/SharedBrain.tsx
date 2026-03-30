@@ -1,8 +1,8 @@
 
 import { useEffect } from 'react';
-import { Card } from '../Components/Card'
 import { Sidebar } from '../Components/Sidebar'
 import {  useFilterType , useSharedUserContents, type Content } from '../store'
+import { ShowCard } from '../Components/showCard';
 
 export function SharedBrain() {
 
@@ -35,9 +35,9 @@ export function SharedBrain() {
       </div>
 
 
-      <div className='w-screen bg-red-200 relative'>
-        <div className='bg-red-300 flex justify-between items-center'>
-          <div className='ml-3 text-3xl'>
+      <div className='w-screen bg-gray-200 relative'>
+        <div className='bg-gray-200 flex justify-between items-center'>
+          <div className='m-3 p-2 text-3xl'>
             <h1>ALL NOTES</h1>
           </div>
 
@@ -45,7 +45,7 @@ export function SharedBrain() {
 
         <div className='grid grid-cols-3'>
           {
-            filteredContents.map((content : Content) => <Card 
+            filteredContents.map((content : Content) => <ShowCard 
               key= {content._id}
               id={content._id}
               userId = {content.userId}

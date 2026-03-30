@@ -1,10 +1,8 @@
-import { DeleteIcon } from "../assets/Deleteicon";
 import { VideoIcon } from "../assets/SidebarIcons/videoIcon";
 import { TweetIcon } from "../assets/SidebarIcons/TweetIcon";
 import { ArticleIcon } from "../assets/SidebarIcons/ArticleIcons";
 import { PhotoIcon } from "../assets/SidebarIcons/photoIcon";
-import axios from "axios";
-import { BACKEND_URL } from "../config";
+
 import { Tweet } from "../Tweet";
 
 interface Cardprops {
@@ -22,20 +20,8 @@ const Icons = {
     article : <ArticleIcon /> ,
     photo : <PhotoIcon />
 };
-export const Card = (props: Cardprops) => {
+export const ShowCard = (props: Cardprops) => {
 
-    async function DeleteContent () {
-        await axios.delete(`${BACKEND_URL}` + '/api/v1/content', {
-        headers: {
-          token: localStorage.getItem("token"),
-        },
-        data : {
-            contentId : props.id
-        }
-      });
-      alert("Content deleted!");
-
-    }   
 
     return (
         <div  className={`mt-10 ml-10 p-2 bg-gray-100 w-85 h-95 rounded-lg border border-slate-300`} >
@@ -44,9 +30,6 @@ export const Card = (props: Cardprops) => {
                     <div className={`flex gap-2`}>    
                     {Icons[props.type]} <h1> {props.title} </h1>
                     </div>
-                    <div className="flex gap-2"> 
-                        <button className="p-2 hover:bg-gray-300 rounded-full" onClick={DeleteContent}> {<DeleteIcon size="sm"/>} </button>
-                    </div> 
                  
                 </div>
                 

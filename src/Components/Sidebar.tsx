@@ -17,13 +17,13 @@ export const Sidebar = () => {
     const Filter = useFilterType((state) => state.Filter);
 
     return (
-        <div className={`h-screen ${ (show)?'w-60':'w-16'} transition-all duration-300 overflow-hidden bg-gray-200 sticky top-0 `}>
+        <div className={`h-screen ${ (show)?'w-60':'w-16'} transition-all duration-300 overflow-hidden bg-gray-100 sticky top-0 `}>
             <button className={`m-3 p-1 hover:bg-gray-300 transition-all duration-300 rounded-full`} onClick={toggleshow}>{<BarsIcon />}</button>
             <SidebarItem text='Home' endIcon={ <HomeIcon size="md" />} onclick={()=> {setFilter("all")}} isActive={Filter === 'all'} />
             <SidebarItem  text="Images"  endIcon={<PhotoIcon />} onclick={()=> setFilter("photo")}  isActive={Filter === 'photo'}/>
             <SidebarItem  text="Videos"  endIcon={<VideoIcon /> } onclick={()=> setFilter("video")} isActive={Filter === 'video'} />
             <SidebarItem  text="Articles" endIcon={<ArticleIcon />} onclick={()=> setFilter("article")} isActive={Filter === 'article'}/>
-            <SidebarItem  text="Tweets" endIcon={<TweetIcon />}  onclick={()=> setFilter("tweet")}  isActive={Filter === 'tweet'} />
+            <SidebarItem  text="Tweets" endIcon={<TweetIcon size="sm"/>}  onclick={()=> setFilter("tweet")}  isActive={Filter === 'tweet'} />
             {/* <SidebarItem  text="Reels" endIcon={<ReelIcon />}  onclick={()=> setFilter("reel")}  isActive={Filter === 'reel'} /> */}
         </div>
     );

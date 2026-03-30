@@ -1,12 +1,26 @@
-export const  TweetIcon = () => {
+import { sizes, type IconProps } from "../IconProps";
+
+export const  TweetIcon = (props : IconProps) => {
     return (
         
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
-</svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" className={`bi bi-twitter-x ${sizes[props.size]}`}  viewBox="0 0 16 16" id="Twitter-X--Streamline-Bootstrap" height="16" width="16">
+          <desc>
+            Twitter X Streamline Icon: https://streamlinehq.com
+          </desc>
+          <path d="M12.6 0.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867 -5.07 -4.425 5.07H0.316l5.733 -6.57L0 0.75h5.063l3.495 4.633L12.601 0.75Zm-0.86 13.028h1.36L4.323 2.145H2.865z" stroke-width="1"></path>
+        </svg>
 
 
     
     );
     
 }
+
+
+/* <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" class="bi bi-twitter-x" viewBox="0 0 16 16" id="Twitter-X--Streamline-Bootstrap" height="16" width="16">
+  <desc>
+    Twitter X Streamline Icon: https://streamlinehq.com
+  </desc>
+  <path d="M12.6 0.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867 -5.07 -4.425 5.07H0.316l5.733 -6.57L0 0.75h5.063l3.495 4.633L12.601 0.75Zm-0.86 13.028h1.36L4.323 2.145H2.865z" stroke-width="1"></path>
+</svg>
+*/

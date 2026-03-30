@@ -16,9 +16,12 @@ export function DashBoard() {
 
 
   useEffect(()=> {
-     SetContents();
+    let timer = setInterval(() => SetContents() , 1000)
      
-  } , []);
+    return () => {
+    clearInterval(timer);
+  };
+  } , [Contents]);
   //apply filter to Contents before mapping it to cards
   const Filter = useFilterType((state) => state.Filter);
   const filteredContents = Contents.filter((item) => {
@@ -42,9 +45,9 @@ export function DashBoard() {
       {ModalShow && <AddContentModal /> }
       {ShareModalShow && <ShareContentModal />}
 
-      <div className='w-screen bg-red-200 relative'>
-        <div className='bg-red-300 flex justify-between items-center'>
-          <div className='ml-3 text-3xl'>
+      <div className='w-screen bg-gray-200 relative'>
+        <div className='bg-gray-200 flex justify-between items-center'>
+          <div className='ml-3 text-4xl text-bold'>
             <h1>ALL NOTES</h1>
           </div>
 
@@ -55,7 +58,7 @@ export function DashBoard() {
         </div>
 
 
-        <div className='grid grid-cols-3'>
+        <div className='grid grid-cols-1  md:grid-cols-3'>
           {
             filteredContents.map((content : Content) => <Card 
               key= {content._id}
