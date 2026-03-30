@@ -43,20 +43,20 @@ export const AddContentModal = () => {
     }
 
     return (
-        <div className="w-full h-screen bg-slate-800 opacity-60 absolute z-10 position-fixed flex items-center justify-center" >
-            <div className="p-3 bg-gray-100">
+        <div className="w-full h-screen bg-slate-800/70  absolute z-10 position-fixed flex items-center justify-center" >
+            <div className="p-4 bg-gray-100 rounded-xl w-80">
                 <div className="flex justify-between">
-                    <div>Add new Content</div>
+                    <div className="text-lg">Add a new Content</div>
                     <div> 
-                        <button onClick={ToggleModalShow} className="curson-pointer"> {<DeleteIcon size="md"/>} </button>
+                        <button onClick={ToggleModalShow} className="p-1 cursor-pointer hover:bg-gray-400"> {<DeleteIcon size="md"/>} </button>
                     </div>
                 </div>
                 
                 <div className="p-2">
-                    <div className="m-2 p-3 border rounded-lg"> <input placeholder="title" ref={titleref}></input> </div>
-                    <div className=" m-2 p-3 border rounded-lg"> <input placeholder="link" ref={linkref}></input> </div>
-                    <div className=" m-2 p-3 border rounded-lg "> <input placeholder="type (video/photo/article)" ref={typeref} ></input> </div>
-                    <div className=" m-2 p-3 border rounded-lg "> <input placeholder="tags" ref={tagsref} ></input> </div>
+                    <div className="w-full mt-3 p-3 border rounded-lg "> <input placeholder="title" ref={titleref} className="w-full box-border outline-none"></input> </div>
+                    <div className="w-full mt-2 p-3 border rounded-lg"> <input placeholder="link" ref={linkref} className="w-full box-border outline-none" ></input> </div>
+                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="type (video/photo/article)" ref={typeref} className="w-full box-border outline-none" ></input> </div>
+                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="tags" ref={tagsref} className="w-full box-border outline-none"></input> </div>
                     <div className=" w-full flex justify-center">
                             <Button variant="primary" size="lg" text=" Add To Brain " onClick={handleclick}  />
                     </div>
