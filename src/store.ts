@@ -56,4 +56,19 @@ export const useUserContents = create<UserContents>((set) => ({
         }
         
     }
+}));
+
+type ContentFilter = 'all' | 'photo' | 'video' | 'article' | 'tweet' | 'reel'
+
+
+type FilterType = {
+    Filter : ContentFilter
+    setFilter : (value : ContentFilter) =>  void
+}
+
+export const useFilterType = create<FilterType>((set) => ({
+    Filter : 'all',
+    setFilter : (value) => {
+        set({Filter : value})
+    }
 }))

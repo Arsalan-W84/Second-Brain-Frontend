@@ -7,7 +7,7 @@ import { AddContentModal } from '../Components/AddContentModal'
 import { Button } from '../Components/Button'
 import { Card } from '../Components/Card'
 import { Sidebar } from '../Components/Sidebar'
-import { useAddContentStore, useUserContents, type Content } from '../store'
+import { useAddContentStore, useFilterType, useUserContents, type Content } from '../store'
 
 export function DashBoard() {
 
@@ -19,7 +19,17 @@ export function DashBoard() {
      SetContents();
      
   } , []);
-  
+  //apply filter to Contents before mapping it to cards
+  const Filter = useFilterType((state) => state.Filter);
+  const filteredContents = Contents.filter((item) => {
+      if(Filter == 'all') {return true;}
+
+      else{
+        return item.type === Filter;
+      }
+
+  });
+
   const ToggleModalShow = useAddContentStore((state) => state.ToggleModalShow);
   const ModalShow = useAddContentStore((state) => state.ModalShow);
   return (
@@ -45,7 +55,7 @@ export function DashBoard() {
 
         <div className='grid grid-cols-3'>
           {
-            Contents.map((content : Content) => <Card 
+            filteredContents.map((content : Content) => <Card 
               key= {content._id}
               id={content._id}
               userId = {content.userId}

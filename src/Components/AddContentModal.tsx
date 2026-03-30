@@ -1,9 +1,9 @@
 import { useRef } from "react";
-import { DeleteIcon } from "../assets/Deleteicon";
 import { useAddContentStore } from "../store";
 import { Button } from "./Button";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
+import { CrossIcon } from "../assets/CrossIcon";
 
 
 
@@ -46,9 +46,9 @@ export const AddContentModal = () => {
         <div className="w-full h-screen bg-slate-800/70  absolute z-10 position-fixed flex items-center justify-center" >
             <div className="p-4 bg-gray-100 rounded-xl w-80">
                 <div className="flex justify-between">
-                    <div className="text-lg">Add a new Content</div>
+                    <div className="text-2xl">Add a new Content</div>
                     <div> 
-                        <button onClick={ToggleModalShow} className="p-1 cursor-pointer hover:bg-gray-400"> {<DeleteIcon size="md"/>} </button>
+                        <button onClick={ToggleModalShow} className="p-1 cursor-pointer hover:bg-gray-300 rounded-full"> {< CrossIcon size="md"/>} </button>
                     </div>
                 </div>
                 
