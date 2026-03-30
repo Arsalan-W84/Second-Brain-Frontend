@@ -6,6 +6,7 @@ import { BACKEND_URL } from "../config";
 import { CrossIcon } from "../assets/CrossIcon";
 
 
+const defaultstyles = "w-full box-border outline-none";
 
 export const AddContentModal = () => {
     const ToggleModalShow = useAddContentStore((state) => state.ToggleModalShow);
@@ -53,10 +54,10 @@ export const AddContentModal = () => {
                 </div>
                 
                 <div className="p-2">
-                    <div className="w-full mt-3 p-3 border rounded-lg "> <input placeholder="title" ref={titleref} className="w-full box-border outline-none"></input> </div>
-                    <div className="w-full mt-2 p-3 border rounded-lg"> <input placeholder="link" ref={linkref} className="w-full box-border outline-none" ></input> </div>
-                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="type (video/photo/article)" ref={typeref} className="w-full box-border outline-none" ></input> </div>
-                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="tags" ref={tagsref} className="w-full box-border outline-none"></input> </div>
+                    <div className="w-full mt-3 p-3 border rounded-lg "> <input placeholder="title" ref={titleref} className={defaultstyles} ></input> </div>
+                    <div className="w-full mt-2 p-3 border rounded-lg"> <input placeholder="link" ref={linkref} className={defaultstyles} ></input> </div>
+                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="type (video/photo/article)" ref={typeref} className={defaultstyles} ></input> </div>
+                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="tags" ref={tagsref} className={defaultstyles}></input> </div>
                     <div className=" w-full flex justify-center">
                             <Button variant="primary" size="lg" text=" Add To Brain " onClick={handleclick}  />
                     </div>

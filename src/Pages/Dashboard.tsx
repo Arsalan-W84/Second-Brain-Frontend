@@ -7,7 +7,8 @@ import { AddContentModal } from '../Components/AddContentModal'
 import { Button } from '../Components/Button'
 import { Card } from '../Components/Card'
 import { Sidebar } from '../Components/Sidebar'
-import { useAddContentStore, useFilterType, useUserContents, type Content } from '../store'
+import { useAddContentStore, useFilterType, useShareContentStore, useUserContents, type Content } from '../store'
+import { ShareContentModal } from '../Components/ShareContentModal'
 
 export function DashBoard() {
 
@@ -31,7 +32,9 @@ export function DashBoard() {
   });
 
   const ToggleModalShow = useAddContentStore((state) => state.ToggleModalShow);
+  const ToggleShareModalShow = useShareContentStore((state) => state.ToggleShareModalShow);
   const ModalShow = useAddContentStore((state) => state.ModalShow);
+  const ShareModalShow = useShareContentStore((state)=> state.ShareModalShow);
   return (
     <div className='flex relative'>
       <div>
@@ -39,6 +42,7 @@ export function DashBoard() {
       </div>
       
       {ModalShow && <AddContentModal /> }
+      {ShareModalShow && <ShareContentModal />}
 
       <div className='w-screen bg-red-200 relative'>
         <div className='bg-red-300 flex justify-between items-center'>
@@ -47,7 +51,7 @@ export function DashBoard() {
           </div>
 
           <div className='flex'>
-            <Button text='Share Brain' variant='secondary' onClick={()=>{}} size='lg' starticon={<ShareIcon size='md'/>} />
+            <Button text='Share Brain' variant='secondary' onClick={ToggleShareModalShow} size='lg' starticon={<ShareIcon size='md'/>} />
             <Button text='Add Content' variant='primary' onClick={ToggleModalShow} size='lg' starticon={< PlusIcon size='md' />} />
           </div>
         </div>

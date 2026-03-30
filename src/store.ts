@@ -72,3 +72,17 @@ export const useFilterType = create<FilterType>((set) => ({
         set({Filter : value})
     }
 }))
+
+
+
+type ShareContentStore = {
+    ShareModalShow : boolean;
+    ToggleShareModalShow : () => void
+}
+
+export const useShareContentStore = create<ShareContentStore>((set) => ({
+    ShareModalShow : false , 
+    ToggleShareModalShow : () => {
+        set((state) => ({ShareModalShow : !state.ShareModalShow}));
+    }
+}))
