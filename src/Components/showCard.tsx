@@ -34,7 +34,7 @@ export const ShowCard = (props: Cardprops) => {
                 </div>
                 
                 <div className="mt-5"> 
-                    {props.type == 'article' && (<a href={props.link} target="_blank" className="text-blue-500 underline">Read Article</a>)}
+                    {props.type == 'article' && (<a href={props.link} target="_blank" className="text-blue-500 underline">Full Article</a>)}
 
                     {props.type === "video" && (
                         <div className="p-2 border border-gray-300 rounded-2xl">

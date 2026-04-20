@@ -14,7 +14,7 @@ export const Tweet = ({ url }: { url: string }) => {
 
     const renderTweet = () => {
       if (window.twttr && ref.current) {
-        ref.current.innerHTML = ""; // 🧹 clear old embeds
+        ref.current.innerHTML = ""; // clear old embeds
         window.twttr.widgets.createTweet(tweetId, ref.current);
       }
     };
