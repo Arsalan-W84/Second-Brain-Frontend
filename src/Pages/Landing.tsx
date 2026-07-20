@@ -13,33 +13,43 @@ export const Landing = () => {
     async function OnSignup() {
         const username = UsernameRef.current?.value;
         const password = PasswordRef.current?.value;
-        console.log(UsernameRef.current?.value);
-        console.log(PasswordRef.current?.value);
-        await axios.post(`${BACKEND_URL}` + '/api/v1/auth/signup'  ,  {
-            username : username,
-            password : password
-        });
-        navigate("/signin");
-        alert("You have signed up");
+        
+        try{
+            await axios.post(`${BACKEND_URL}` + '/api/v1/auth/signup'  ,  {
+                username : username,
+                password : password
+            });
+            navigate("/signin");
+            alert("You have signed up");
+        }catch(e){
+            alert(e);
+        }
+        
     }
 
     async function OnSignin() {
         const username = UsernameRef.current?.value;
         const password = PasswordRef.current?.value;
-        console.log(username);
-        console.log(password);
-        const response = await axios.post(`${BACKEND_URL}` + '/api/v1/auth/login'  ,  {
-            username : username,
-            password : password
-        });
-        const jwt = response.data.token;
-        if(jwt){
-            localStorage.setItem("token" , jwt);
-            alert("You have logged in");
-            navigate("/dashboard")
-        }else{
-            alert("Something Went Wrong!");
+        
+        try{
+            const response = await axios.post(`${BACKEND_URL}` + '/api/v1/auth/login'  ,  {
+                username : username,
+                password : password
+            });
+            console.log(response.data.token);
+            const jwt = response.data.token;
+            //alert(response.data.message);
+            if(jwt){
+                localStorage.setItem("token" , jwt);
+                alert("You have logged in");
+                navigate("/dashboard")
+            }else{
+                alert("Something Went Wrong!");
+            }
+        }catch(e){
+            alert("Oops! This user does not exist");
         }
+        
     }
 
 
