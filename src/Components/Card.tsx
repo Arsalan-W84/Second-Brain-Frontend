@@ -86,12 +86,7 @@ export const Card = (props: Cardprops) => {
 
                     {props.type === "linkedin" && (
                         <div className="p-2 border border-gray-300 rounded-2xl max-h-[250px] overflow-y-auto"> 
-                            <iframe 
-                                className="w-full min-h-[500px]"
-                                src="https://www.linkedin.com/embed/feed/update/urn:li:share:7484966063936413696"
-                                title="LinkedIn Embed" 
-                                allowFullScreen>
-                            </iframe>
+                            <LinkedInPost url={props.link} title={props.title} />
                         </div>
                         
                     )}
