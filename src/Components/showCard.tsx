@@ -2,8 +2,10 @@ import { VideoIcon } from "../assets/SidebarIcons/videoIcon";
 import { TweetIcon } from "../assets/SidebarIcons/TweetIcon";
 import { ArticleIcon } from "../assets/SidebarIcons/ArticleIcons";
 import { PhotoIcon } from "../assets/SidebarIcons/photoIcon";
+import { LinkedInIcon } from "../assets/SidebarIcons/LinkedInIcon";
 
 import { Tweet } from "../Tweet";
+import { LinkedInPost } from "../LinkedInPost";
 
 interface Cardprops {
     key : string ;
@@ -11,14 +13,15 @@ interface Cardprops {
     userId : string;
     title : string;
     link : string ;
-    type : "video" | "tweet" | "article" | "photo" ; 
+    type : "video" | "tweet" | "article" | "photo" | "linkedin" ; 
 }
 
 const Icons = {
     video : <VideoIcon /> ,
     tweet : <TweetIcon size="sm" /> , 
     article : <ArticleIcon /> ,
-    photo : <PhotoIcon />
+    photo : <PhotoIcon />,
+    linkedin : <LinkedInIcon size="sm" />
 };
 export const ShowCard = (props: Cardprops) => {
 
@@ -61,13 +64,16 @@ export const ShowCard = (props: Cardprops) => {
                     {props.type === "photo" && (
                         <img src={props.link} alt={props.title} className="rounded w-full" />
                     )}
+
+                    {props.type === "linkedin" && (
+                        <LinkedInPost url={props.link} title={props.title} />
+                    )}
                 </div>
 
             </div>
         </div>
     );
 }
-
 
 
 

@@ -3,9 +3,12 @@ import { VideoIcon } from "../assets/SidebarIcons/videoIcon";
 import { TweetIcon } from "../assets/SidebarIcons/TweetIcon";
 import { ArticleIcon } from "../assets/SidebarIcons/ArticleIcons";
 import { PhotoIcon } from "../assets/SidebarIcons/photoIcon";
+import { LinkedInIcon } from "../assets/SidebarIcons/LinkedInIcon";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { Tweet } from "../Tweet";
+import { LinkedInPost } from "../LinkedInPost";
+
 
 interface Cardprops {
     key : string ;
@@ -13,15 +16,17 @@ interface Cardprops {
     userId : string;
     title : string;
     link : string ;
-    type : "video" | "tweet" | "article" | "photo" ; 
+    type : "video" | "tweet" | "article" | "photo" | "linkedin" ; 
 }
 
 const Icons = {
     video : <VideoIcon /> ,
     tweet : <TweetIcon size="sm" /> , 
     article : <ArticleIcon /> ,
-    photo : <PhotoIcon />
+    photo : <PhotoIcon />,
+    linkedin : <LinkedInIcon size="sm" />
 };
+
 export const Card = (props: Cardprops) => {
 
     async function DeleteContent () {
@@ -78,13 +83,24 @@ export const Card = (props: Cardprops) => {
                     {props.type === "photo" && (
                         <img src={props.link} alt={props.title} className="rounded w-full" />
                     )}
+
+                    {props.type === "linkedin" && (
+                        <div className="p-2 border border-gray-300 rounded-2xl max-h-[250px] overflow-y-auto"> 
+                            <iframe 
+                                className="w-full min-h-[500px]"
+                                src="https://www.linkedin.com/embed/feed/update/urn:li:share:7484966063936413696"
+                                title="LinkedIn Embed" 
+                                allowFullScreen>
+                            </iframe>
+                        </div>
+                        
+                    )}
                 </div>
 
             </div>
         </div>
     );
 }
-
 
 
 

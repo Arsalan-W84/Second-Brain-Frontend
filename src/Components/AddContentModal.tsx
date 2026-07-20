@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { CrossIcon } from "../assets/CrossIcon";
+import { getLinkedInEmbedUrl, getYoutubeEmbedUrl } from "../utils/embedLinks";
 
 
 const defaultstyles = "w-full box-border outline-none";
@@ -21,9 +22,13 @@ export const AddContentModal = () => {
         const tags= tagsref.current?.value;
         const title = titleref.current?.value;
 
-        if(type == 'video'){
-            const match = link?.match(/v=([^&]+)/);
-            link =  match ? `https://www.youtube.com/embed/${match[1]}` : link;
+        if(type == 'video' && link){
+            link = getYoutubeEmbedUrl(link);
+        }
+
+        if(type == 'linkedin' && link){
+            const embedLink = getLinkedInEmbedUrl(link);
+            link = embedLink ?? link;
         }
 
         if(type && link && tags && title){
@@ -65,12 +70,13 @@ export const AddContentModal = () => {
                             className="w-full bg-transparent outline-none appearance-none cursor-pointer text-gray-700"
                         > 
                             <option value="" disabled hidden className="p-2 text-gray-400">
-                            Select type (video/photo/article)
+                            Select type
                             </option>
                             <option value="video">Video</option>
                             <option value="photo">Photo</option>
                             <option value="article">Article</option>
                             <option value="tweet">tweet</option>
+                            <option value="linkedin">LinkedIn</option>
                         </select>
 
                         <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">

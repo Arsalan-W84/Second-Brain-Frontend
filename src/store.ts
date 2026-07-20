@@ -31,7 +31,7 @@ export const useAddContentStore = create<AddContentStore>((set) => ({
 export type Content = {
     _id : string , 
     link : string,
-    type : 'photo' | 'video' | 'article' | 'tweet',
+    type : 'photo' | 'video' | 'article' | 'tweet' | 'linkedin',
     title: string,
     tags:  [],
     userId : string
@@ -58,7 +58,7 @@ export const useUserContents = create<UserContents>((set) => ({
     }
 }));
 
-type ContentFilter = 'all' | 'photo' | 'video' | 'article' | 'tweet' | 'reel'
+type ContentFilter = 'all' | 'photo' | 'video' | 'article' | 'tweet' | 'linkedin' | 'reel'
 
 
 type FilterType = {

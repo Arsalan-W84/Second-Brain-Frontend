@@ -5,6 +5,7 @@ import { PhotoIcon } from "../assets/SidebarIcons/photoIcon";
 import { VideoIcon } from "../assets/SidebarIcons/videoIcon";
 import { ArticleIcon } from "../assets/SidebarIcons/ArticleIcons";
 import { TweetIcon } from "../assets/SidebarIcons/TweetIcon";
+import { LinkedInIcon } from "../assets/SidebarIcons/LinkedInIcon";
 import { useFilterType, useSidebarstore } from "../store";
 import { HomeIcon } from "../assets/SidebarIcons/HomeIcon";
 
@@ -24,6 +25,7 @@ export const Sidebar = () => {
             <SidebarItem  text="Videos"  endIcon={<VideoIcon /> } onclick={()=> setFilter("video")} isActive={Filter === 'video'} />
             <SidebarItem  text="Articles" endIcon={<ArticleIcon />} onclick={()=> setFilter("article")} isActive={Filter === 'article'}/>
             <SidebarItem  text="Tweets" endIcon={<TweetIcon size="sm"/>}  onclick={()=> setFilter("tweet")}  isActive={Filter === 'tweet'} />
+            <SidebarItem  text="LinkedIn" endIcon={<LinkedInIcon size="sm"/>}  onclick={()=> setFilter("linkedin")}  isActive={Filter === 'linkedin'} />
             {/* <SidebarItem  text="Reels" endIcon={<ReelIcon />}  onclick={()=> setFilter("reel")}  isActive={Filter === 'reel'} /> */}
         </div>
     );
