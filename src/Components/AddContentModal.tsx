@@ -13,7 +13,7 @@ export const AddContentModal = () => {
     const titleref = useRef<HTMLInputElement>(null);
     const tagsref = useRef<HTMLInputElement>(null);
     const linkref = useRef<HTMLInputElement>(null);
-    const typeref = useRef<HTMLInputElement>(null);
+    const typeref = useRef<HTMLSelectElement>(null);
 
     async function handleclick() {
         const type = typeref.current?.value;
@@ -56,7 +56,30 @@ export const AddContentModal = () => {
                 <div className="p-2">
                     <div className="w-full mt-3 p-3 border rounded-lg "> <input placeholder="title" ref={titleref} className={defaultstyles} ></input> </div>
                     <div className="w-full mt-2 p-3 border rounded-lg"> <input placeholder="link" ref={linkref} className={defaultstyles} ></input> </div>
-                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="type (video/photo/article)" ref={typeref} className={defaultstyles} ></input> </div>
+                    
+                    <div className="w-full mt-2 p-3 border rounded-lg "> 
+                        {/* <input placeholder="type (video/photo/article)" ref={typeref} className={defaultstyles} ></input>  */}
+                        <select 
+                            ref={typeref}
+                            defaultValue=""
+                            className="w-full bg-transparent outline-none appearance-none cursor-pointer text-gray-700"
+                        > 
+                            <option value="" disabled hidden className="p-2 text-gray-400">
+                            Select type (video/photo/article)
+                            </option>
+                            <option value="video">Video</option>
+                            <option value="photo">Photo</option>
+                            <option value="article">Article</option>
+                            <option value="tweet">tweet</option>
+                        </select>
+
+                        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+
                     <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="tags" ref={tagsref} className={defaultstyles}></input> </div>
                     <div className=" w-full flex justify-center">
                             <Button variant="primary" size="lg" text=" Add To Brain " onClick={handleclick}  />
