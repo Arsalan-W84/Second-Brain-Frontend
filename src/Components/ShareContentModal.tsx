@@ -16,7 +16,7 @@ export const ShareContentModal  = () => {
                 "token" : localStorage.getItem("token")
             }
         });
-        const url =FRONTEND_URL + 'api/v1/brain/' + response.data.link;
+        const url =FRONTEND_URL + '/api/v1/brain/' + response.data.link;
         setShareLink(url);
     }
 
