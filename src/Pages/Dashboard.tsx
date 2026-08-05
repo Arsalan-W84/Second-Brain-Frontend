@@ -67,6 +67,7 @@ export function DashBoard() {
               title={content.title} 
               link={content.link} 
               type={content.type} 
+              body={content.body}
             /> )
           }
         </div>

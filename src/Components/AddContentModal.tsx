@@ -12,15 +12,17 @@ const defaultstyles = "w-full box-border outline-none";
 export const AddContentModal = () => {
     const ToggleModalShow = useAddContentStore((state) => state.ToggleModalShow);
     const titleref = useRef<HTMLInputElement>(null);
-    const tagsref = useRef<HTMLInputElement>(null);
+    //const tagsref = useRef<HTMLInputElement>(null);
     const linkref = useRef<HTMLInputElement>(null);
     const typeref = useRef<HTMLSelectElement>(null);
+    const bodyref = useRef<HTMLInputElement>(null);
 
     async function handleclick() {
         const type = typeref.current?.value;
         let link = linkref.current?.value;
-        const tags= tagsref.current?.value;
+        //const tags= tagsref.current?.value;
         const title = titleref.current?.value;
+        const body = bodyref.current?.value;
 
         if(type == 'video' && link){
             link = getYoutubeEmbedUrl(link);
@@ -31,12 +33,12 @@ export const AddContentModal = () => {
             link = embedLink ?? link;
         }
 
-        if(type && link && tags && title){
+        if(type && link  && title){
                 await axios.post(`${BACKEND_URL}` + '/api/v1/content' , {
                 link : link,
                 type : type, 
                 title : title ,
-                tags : tags ,
+                body : body
             } , {
                 headers : {
                     "token" : localStorage.getItem("token")
@@ -86,7 +88,10 @@ export const AddContentModal = () => {
                         </div>
                     </div>
 
-                    <div className="w-full mt-2 p-3 border rounded-lg "> <input placeholder="tags" ref={tagsref} className={defaultstyles}></input> </div>
+                    <div className="w-full mt-3 p-3 border rounded-lg ">
+                        <input type="text" placeholder="Notes" ref={bodyref} className={defaultstyles} ></input>
+
+                    </div>
                     <div className=" w-full flex justify-center">
                             <Button variant="primary" size="lg" text=" Add To Brain " onClick={handleclick}  />
                     </div>

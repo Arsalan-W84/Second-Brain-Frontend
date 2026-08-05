@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react() , tailwindcss()],
-  base : process.env.VITE_BASE_PATH || "/Second-Brain-Frontend", 
+  base : process.env.VITE_BASE_PATH || "/", 
   server : {
     allowedHosts : [
       "malacotic-jetta-melodramatically.ngrok-free.dev"

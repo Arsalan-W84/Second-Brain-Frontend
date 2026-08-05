@@ -33,7 +33,7 @@ export type Content = {
     link : string,
     type : 'photo' | 'video' | 'article' | 'tweet' | 'linkedin',
     title: string,
-    tags:  [],
+    body:  string,
     userId : string
 }
 type UserContents = {

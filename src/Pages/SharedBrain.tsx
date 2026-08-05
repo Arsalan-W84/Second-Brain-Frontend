@@ -52,6 +52,7 @@ export function SharedBrain() {
               title={content.title} 
               link={content.link} 
               type={content.type} 
+              body={content.body}
             /> )
           }
         </div>

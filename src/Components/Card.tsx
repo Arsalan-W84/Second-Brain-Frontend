@@ -16,6 +16,7 @@ interface Cardprops {
     userId : string;
     title : string;
     link : string ;
+    body : string,
     type : "video" | "tweet" | "article" | "photo" | "linkedin" ; 
 }
 
@@ -87,10 +88,15 @@ export const Card = (props: Cardprops) => {
                     {props.type === "linkedin" && (
                         <div className="p-2 border border-gray-300 rounded-2xl max-h-[250px] overflow-y-auto"> 
                             <LinkedInPost url={props.link} title={props.title} />
+                            <div><a href={props.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                            Full Post
+                            </a></div>
                         </div>
                         
                     )}
                 </div>
+
+                <div className="mt-2 p-1 text-black text-md">{props.body}</div>
 
             </div>
         </div>

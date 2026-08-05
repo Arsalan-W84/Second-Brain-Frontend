@@ -13,6 +13,7 @@ interface Cardprops {
     userId : string;
     title : string;
     link : string ;
+    body : string,
     type : "video" | "tweet" | "article" | "photo" | "linkedin" ; 
 }
 
@@ -69,6 +70,8 @@ export const ShowCard = (props: Cardprops) => {
                         <LinkedInPost url={props.link} title={props.title} />
                     )}
                 </div>
+
+                <div className="mt-2 p-1 text-md">{props.body}</div>
 
             </div>
         </div>
